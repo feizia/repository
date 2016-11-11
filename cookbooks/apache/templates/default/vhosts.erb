@@ -1,0 +1,13 @@
+<% if @port == 80 -%>
+NameVirtualHost *:80
+<% end -%>
+<VirtualHost *:<%= @port %> >
+    DocumentRoot <%= @document_root%> 
+    ServerName <%= @domain %> 
+    <Directory <%= @document_root%> >
+      DirectoryIndex index.php
+      AllowOverride All
+      Order allow,deny
+      Allow from all
+    </Directory>
+</VirtualHost>
